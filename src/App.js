@@ -3,15 +3,18 @@ import { MlNavigationTools } from "@mapcomponents/react-maplibre";
 import TerrainLayer from "./components/TerrainLayer";
 import MapLibreMap from "./components/MapLibreMap/MapLibreMap";
 
+// const yourMapTilerAPIkey = 
+
 function App() {
   return (
     <>
       <MapLibreMap
         mapId="map_1"
         options={{
-          zoom: 8,
-          style: "https://wms.wheregroup.com/tileserver/style/osm-fiord-color.json",
-          center: [7.0851268, 50.73884],
+          zoom: 17,
+          style: `https://api.maptiler.com/maps/hybrid/style.json?key=${yourMapTilerAPIkey}`,
+          center: [-93.32780,29.8834],
+          pitch:85
         }}
       />
       <TerrainLayer />
