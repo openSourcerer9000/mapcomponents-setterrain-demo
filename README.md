@@ -1,3 +1,15 @@
+# Issue with tiles disappearing
+It's removing the closer raster tiles from view when terrain is on, the higher the exaggeration, the worse the problem. Something to do with the camera being distorted from the viewport? It's like it thinks the closest tiles are out of view.
+
+The issue gets dramatically worse by increasing the exaggeration z-factor (`TerrainLayer.jsx`). Vector basemaps seem immune, but geojson vector layers also disappear in unison with raster basemaps and custom raster tiles. 
+
+The problem has been identified to occur in flat areas which are also down at sea level. All the terrain examples use the Swiss Alps, etc (because it looks awesome), so the camera may just be calibrated to elevations of 5km. Given an elevation of 0-5m, something may not be set up correctly. 
+
+![image](https://user-images.githubusercontent.com/61931826/169549237-e2e12701-e56e-422e-ac87-169abdffb9d0.png)
+![image](https://user-images.githubusercontent.com/61931826/169387373-c178f8f1-40b5-4873-80f0-2c842b209c54.png)
+
+To use the raster tiled imagery, you'll need to provide a (free) MapTiler API key in `App.js`, or switch to another satellite imagery basemap.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
